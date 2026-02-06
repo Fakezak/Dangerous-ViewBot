@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ VIEW BOT SYSTEM - EDUCATIONAL STUDY ⚠️</title>
+    <style>
+        :root {
+            --hacker-green: #00ff00;
+            --hacker-dark: #0a0a0a;
+            --hacker-gray: #1a1a1a;
+            --terminal-bg: #000000;
+            --warning-red: #ff0000;
+            --cyber-blue: #0088ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background: var(--hacker-dark);
+            color: var(--hacker-green);
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 136, 255, 0.05) 0%, transparent 20%);
+            overflow-x: hidden;
+        }
+        
+        /* Matrix Rain Effect */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Warning Header */
+        .warning-header {
+            background: linear-gradient(90deg, #ff0000, #ff6b00);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 3px solid #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            animation: warning-pulse 1s infinite;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        @keyframes warning-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(10, 10, 10, 0.9);
+            border: 2px solid var(--hacker-green);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--hacker-green),
+                var(--cyber-blue),
+                var(--hacker-green)
+            );
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--hacker-green);
+        }
+        
+        .title {
+            font-size: 3em;
+            color: var(--hacker-green);
+            text-shadow: 0 0 15px currentColor;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            color: var(--cyber-blue);
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        /* System Status */
+        .system-status {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .status-box {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border: 1px solid var(--hacker-green);
+            border-radius: 5px;
+        }
+        
+        .status-box h3 {
+            color: var(--cyber-blue);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .status-value {
+            font-size: 1.5em;
+            color: var(--hacker-green);
+            font-weight: bold;
+        }
+        
+        /* Main Control Panel */
+        .control-panel {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .control-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Input Section */
+        .input-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            border: 1px solid var(--hacker-green);
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--hacker-green);
+            font-size: 1.1em;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            border: 2px solid var(--hacker-green);
+            color: var(--hacker-green);
+            font-size: 1em;
+            outline: none;
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 10px var(--hacker-green);
+        }
+        
+        /* View Counter */
+        .view-counter {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .slider {
+            flex: 1;
+            height: 10px;
+            -webkit-appearance: none;
+            background: black;
+            border: 1px solid var(--hacker-green);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            background: var(--hacker-green);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--hacker-green);
+        }
+        
+        .counter-display {
+            font-size: 2em;
+            color: var(--hacker-green);
+            min-width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Preset Buttons */
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .preset-btn {
+            padding: 12px;
+            background: black;
+            border: 2px solid var(--hacker-green);
+            color: var(--hacker-green);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .preset-btn:hover {
+            background: var(--hacker-green);
+            color: black;
+            transform: scale(1.05);
+        }
+        
+        /* Proxy Settings */
+        .proxy-settings {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--cyber-blue);
+        }
+        
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .proxy-option {
+            padding: 15px;
+            background: black;
+            border: 2px solid var(--cyber-blue);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .proxy-option.selected {
+            background: var(--cyber-blue);
+            color: black;
+        }
+        
+        /* Bot Settings */
+        .bot-settings {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            border: 1px solid var(--cyber-blue);
+        }
+        
+        .setting-option {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider-switch {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            border: 2px solid var(--hacker-green);
+            transition: .4s;
+        }
+        
+        .slider-switch:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 2px;
+            background-color: var(--hacker-green);
+            transition: .4s;
+        }
+        
+        input:checked + .slider-switch {
+            background-color: var(--hacker-green);
+        }
+        
+        input:checked + .slider-switch:before {
+            transform: translateX(26px);
+            background-color: black;
+        }
+        
+        /* Start Button */
+        .start-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(90deg, #ff0000, #ff6b00);
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .start-btn:hover {
+            background: linear-gradient(90deg, #ff6b00, #ff0000);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        /* Terminal */
+        .terminal {
+            background: black;
+            border: 2px solid var(--hacker-green);
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            margin-top: 30px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--hacker-green);
+        }
+        
+        .terminal-title {
+            color: var(--hacker-green);
+            font-size: 1.2em;
+        }
+        
+        .terminal-content {
+            line-height: 1.6;
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            border-left: 2px solid transparent;
+        }
+        
+        .log-entry.info {
+            border-left-color: var(--cyber-blue);
+            color: var(--cyber-blue);
+        }
+        
+        .log-entry.success {
+            border-left-color: var(--hacker-green);
+            color: var(--hacker-green);
+        }
+        
+        .log-entry.warning {
+            border-left-color: #ff9900;
+            color: #ff9900;
+        }
+        
+        .log-entry.error {
+            border-left-color: #ff0000;
+            color: #ff0000;
+        }
+        
+        /* Stats Display */
+        .stats-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border: 1px solid var(--hacker-green);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            color: var(--hacker-green);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: var(--cyber-blue);
+            font-size: 0.9em;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--hacker-green);
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Animations */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        
+        .glitch {
+            animation: glitch 0.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix"></canvas>
+    
+    <!-- Warning Header -->
+    <div class="warning-header">
+        ⚠️ FOR EDUCATIONAL PURPOSES ONLY - ILLEGAL TO USE ON YOUTUBE ⚠️
+    </div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title glitch">VIEW BOT SYSTEM v4.2.0</h1>
+            <div class="subtitle">YouTube View Automation Platform</div>
+        </div>
+        
+        <!-- System Status -->
+        <div class="system-status">
+            <div class="status-box">
+                <h3>SYSTEM STATUS</h3>
+                <div class="status-value blink" id="systemStatus">OPERATIONAL</div>
+            </div>
+            <div class="status-box">
+                <h3>ACTIVE WORKERS</h3>
+                <div class="status-value" id="activeWorkers">0</div>
+            </div>
+            <div class="status-box">
+                <h3>TOTAL VIEWS SENT</h3>
+                <div class="status-value" id="totalViewsSent">0</div>
+            </div>
+            <div class="status-box">
+                <h3>SUCCESS RATE</h3>
+                <div class="status-value" id="successRate">100%</div>
+            </div>
+        </div>
+        
+        <!-- Main Control Panel -->
+        <div class="control-panel">
+            <!-- Left Panel - Input Section -->
+            <div class="input-section">
+                <h2>CONTROL PANEL</h2>
+                
+                <div class="input-group">
+                    <label class="input-label">YouTube Video URL</label>
+                    <input type="text" class="input-field" id="videoUrl" 
+                           placeholder="https://www.youtube.com/watch?v=..."
+                           value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Target Views</label>
+                    <div class="view-counter">
+                        <input type="range" class="slider" id="viewSlider" 
+                               min="100" max="10000" value="1000" step="100">
+                        <div class="counter-display" id="viewCount">1000</div>
+                    </div>
+                    
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-views="100">100</button>
+                        <button class="preset-btn" data-views="500">500</button>
+                        <button class="preset-btn" data-views="1000">1K</button>
+                        <button class="preset-btn" data-views="5000">5K</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">View Duration (seconds)</label>
+                    <div class="view-counter">
+                        <input type="range" class="slider" id="durationSlider" 
+                               min="10" max="300" value="30">
+                        <div class="counter-display" id="durationCount">30s</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel - Bot Settings -->
+            <div class="bot-settings">
+                <h2>BOT CONFIGURATION</h2>
+                
+                <div class="proxy-settings">
+                    <h3>PROXY NETWORK</h3>
+                    <div class="proxy-grid">
+                        <div class="proxy-option selected" data-proxy="residential">Residential IPs</div>
+                        <div class="proxy-option" data-proxy="datacenter">Datacenter IPs</div>
+                        <div class="proxy-option" data-proxy="mobile">Mobile IPs</div>
+                        <div class="proxy-option" data-proxy="tor">Tor Network</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <h3>ADVANCED SETTINGS</h3>
+                    
+                    <div class="setting-option">
+                        <label class="switch">
+                            <input type="checkbox" id="randomWatchTime" checked>
+                            <span class="slider-switch"></span>
+                        </label>
+                        <span>Random Watch Time</span>
+                    </div>
+                    
+                    <div class="setting-option">
+                        <label class="switch">
+                            <input type="checkbox" id="humanBehavior" checked>
+                            <span class="slider-switch"></span>
+                        </label>
+                        <span>Human-like Behavior</span>
+                    </div>
+                    
+                    <div class="setting-option">
+                        <label class="switch">
+                            <input type="checkbox" id="useCookies">
+                            <span class="slider-switch"></span>
+                        </label>
+                        <span>Use Cookies</span>
+                    </div>
+                    
+                    <div class="setting-option">
+                        <label class="switch">
+                            <input type="checkbox" id="geoDiversify" checked>
+                            <span class="slider-switch"></span>
+                        </label>
+                        <span>Geographic Diversification</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Worker Count</label>
+                    <div class="view-counter">
+                        <input type="range" class="slider" id="workerSlider" 
+                               min="1" max="50" value="10">
+                        <div class="counter-display" id="workerCount">10</div>
+                    </div>
+                </div>
+                
+                <button class="start-btn" id="startBtn">
+                    🚀 LAUNCH VIEW BOT ATTACK
+                </button>
+            </div>
+        </div>
+        
+        <!-- Terminal Output -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">SYSTEM TERMINAL</div>
+                <div style="color: var(--hacker-green)">v4.2.0</div>
+            </div>
+            <div class="terminal-content" id="terminalContent">
+                <div class="log-entry info">[SYSTEM] View Bot System initialized</div>
+                <div class="log-entry info">[PROXY] Residential proxy network loaded (1,247 IPs)</div>
+                <div class="log-entry info">[WORKER] 10 bot workers ready for deployment</div>
+                <div class="log-entry info">[SECURITY] YouTube detection bypass systems active</div>
+                <div class="log-entry">----------------------------------------</div>
+                <div class="log-entry info">[INFO] Awaiting target specification...</div>
+            </div>
+        </div>
+        
+        <!-- Statistics Display -->
+        <div class="stats-display" id="statsDisplay" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-label">CURRENT VIEWS</div>
+                <div class="stat-value" id="currentViews">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">VIEWS PER MINUTE</div>
+                <div class="stat-value" id="viewsPerMinute">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">SUCCESSFUL REQUESTS</div>
+                <div class="stat-value" id="successfulRequests">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">ESTIMATED TIME</div>
+                <div class="stat-value" id="estimatedTime">00:00</div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            ⚠️ This is an educational demonstration. Actual use may violate YouTube Terms of Service.<br>
+            ⚠️ View manipulation can result in channel termination and legal action.<br>
+            ⚠️ Study this code to understand how bots work for DEFENSIVE purposes only.
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%"#&_(),.;:?!\\|{}<>[]^~';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for(let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 50);
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // View Bot System
+        class ViewBotSystem {
+            constructor() {
+                this.isRunning = false;
+                this.totalViews = 0;
+                this.successfulRequests = 0;
+                this.failedRequests = 0;
+                this.startTime = null;
+                this.workers = [];
+                this.targetViews = 1000;
+                this.currentProxy = 'residential';
+                this.viewInterval = null;
+                this.statsInterval = null;
+            }
+            
+            startAttack(videoUrl, targetViews, workerCount) {
+                if (this.isRunning) {
+                    this.log('System already running', 'warning');
+                    return;
+                }
+                
+                this.isRunning = true;
+                this.targetViews = targetViews;
+                this.totalViews = 0;
+                this.successfulRequests = 0;
+                this.failedRequests = 0;
+                this.startTime = Date.now();
+                
+                document.getElementById('systemStatus').textContent = 'ATTACK IN PROGRESS';
+                document.getElementById('systemStatus').style.color = '#ff0000';
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('startBtn').textContent = 'ATTACK RUNNING...';
+                document.getElementById('statsDisplay').style.display = 'grid';
+                
+                this.log(`🚀 Attack launched on: ${videoUrl}`, 'success');
+                this.log(`🎯 Target: ${targetViews.toLocaleString()} views`, 'info');
+                this.log(`👥 Workers deployed: ${workerCount}`, 'info');
+                this.log(`🛡️ Using ${this.currentProxy} proxy network`, 'info');
+                this.log('----------------------------------------', 'info');
+                
+                // Start view generation
+                this.startViewGeneration(targetViews, workerCount);
+                
+                // Start stats update
+                this.startStatsUpdate();
+            }
+            
+            startViewGeneration(targetViews, workerCount) {
+                const viewsPerWorker = Math.ceil(targetViews / workerCount);
+                const baseDelay = 100; // Base delay between views
+                
+                this.log(`Initializing ${workerCount} workers...`, 'info');
+                
+                for (let i = 0; i < workerCount; i++) {
+                    setTimeout(() => {
+                        this.startWorker(i, viewsPerWorker);
+                    }, i * 500); // Stagger worker start
+                }
+                
+                // Simulate YouTube detection after some time
+                setTimeout(() => {
+                    if (Math.random() > 0.7) {
+                        this.simulateYouTubeDetection();
+                    }
+                }, 15000);
+            }
+            
+            startWorker(workerId, targetViews) {
+                let workerViews = 0;
+                const maxViews = targetViews;
+                
+                this.log(`Worker ${workerId + 1} started (target: ${maxViews} views)`, 'success');
+                
+                const workerInterval = setInterval(() => {
+                    if (!this.isRunning || workerViews >= maxViews || this.totalViews >= this.targetViews) {
+                        clearInterval(workerInterval);
+                        this.log(`Worker ${workerId + 1} completed`, 'info');
+                        return;
+                    }
+                    
+                    // Simulate view request
+                    if (this.simulateViewRequest()) {
+                        workerViews++;
+                        this.totalViews++;
+                        this.successfulRequests++;
+                        
+                        // Update display every 100 views
+                        if (this.totalViews % 100 === 0) {
+                            this.log(`✅ View ${this.totalViews.toLocaleString()} sent successfully`, 'success');
+                            document.getElementById('currentViews').textContent = this.totalViews.toLocaleString();
+                            document.getElementById('totalViewsSent').textContent = this.totalViews.toLocaleString();
+                        }
+                        
+                        // Check if target reached
+                        if (this.totalViews >= this.targetViews) {
+                            this.completeAttack();
+                        }
+                    } else {
+                        this.failedRequests++;
+                    }
+                    
+                    // Update active workers
+                    document.getElementById('activeWorkers').textContent = 
+                        this.workers.filter(w => w.active).length;
+                    
+                }, this.getWorkerDelay());
+                
+                this.workers.push({
+                    id: workerId,
+                    active: true,
+                    interval: workerInterval
+                });
+            }
+            
+            simulateViewRequest() {
+                // Simulate various failure conditions
+                const random = Math.random();
+                
+                if (random < 0.05) {
+                    // 5% chance of proxy failure
+                    this.log('Proxy connection failed, rotating IP...', 'warning');
+                    return false;
+                } else if (random < 0.08) {
+                    // 3% chance of YouTube blocking
+                    this.log('YouTube rate limit detected, slowing down...', 'warning');
+                    return false;
+                } else if (random < 0.1) {
+                    // 2% chance of captcha
+                    this.log('CAPTCHA detected, bypassing...', 'warning');
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            getWorkerDelay() {
+                // Variable delay to appear human-like
+                const baseDelay = document.getElementById('randomWatchTime').checked ? 
+                    Math.random() * 2000 + 1000 : 1000;
+                
+                // Add additional delay if human behavior is enabled
+                if (document.getElementById('humanBehavior').checked) {
+                    return baseDelay + Math.random() * 3000;
+                }
+                
+                return baseDelay;
+            }
+            
+            simulateYouTubeDetection() {
+                const detectionChance = Math.random();
+                
+                if (detectionChance < 0.3) {
+                    this.log('⚠️ YouTube anomaly detection triggered!', 'warning');
+                    this.log('🛡️ Activating counter-measures...', 'warning');
+                    
+                    // Simulate slowing down
+                    this.log('Slowing down view rate to avoid detection...', 'info');
+                } else if (detectionChance < 0.5) {
+                    this.log('🚨 YouTube bot detection algorithm active!', 'error');
+                    this.log('🔥 Switching to emergency protocol...', 'error');
+                    
+                    // Simulate some views being removed
+                    setTimeout(() => {
+                        const viewsToRemove = Math.floor(this.totalViews * 0.1);
+                        this.totalViews = Math.max(0, this.totalViews - viewsToRemove);
+                        this.log(`🧹 YouTube removed ${viewsToRemove.toLocaleString()} suspicious views`, 'error');
+                        document.getElementById('currentViews').textContent = this.totalViews.toLocaleString();
+                    }, 5000);
+                }
+            }
+            
+            startStatsUpdate() {
+                this.statsInterval = setInterval(() => {
+                    const elapsedSeconds = (Date.now() - this.startTime) / 1000;
+                    const viewsPerMinute = elapsedSeconds > 0 ? 
+                        Math.round((this.totalViews / elapsedSeconds) * 60) : 0;
+                    
+                    const remainingViews = Math.max(0, this.targetViews - this.totalViews);
+                    const estimatedSeconds = viewsPerMinute > 0 ? 
+                        Math.round((remainingViews / viewsPerMinute) * 60) : 0;
+                    
+                    const minutes = Math.floor(estimatedSeconds / 60);
+                    const seconds = estimatedSeconds % 60;
+                    
+                    document.getElementById('viewsPerMinute').textContent = viewsPerMinute.toLocaleString();
+                    document.getElementById('successfulRequests').textContent = this.successfulRequests.toLocaleString();
+                    document.getElementById('estimatedTime').textContent = 
+                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    // Update success rate
+                    const totalRequests = this.successfulRequests + this.failedRequests;
+                    const successRate = totalRequests > 0 ? 
+                        Math.round((this.successfulRequests / totalRequests) * 100) : 100;
+                    document.getElementById('successRate').textContent = `${successRate}%`;
+                    
+                }, 1000);
+            }
+            
+            completeAttack() {
+                this.isRunning = false;
+                clearInterval(this.viewInterval);
+                clearInterval(this.statsInterval);
+                
+                // Stop all workers
+                this.workers.forEach(worker => {
+                    clearInterval(worker.interval);
+                    worker.active = false;
+                });
+                
+                document.getElementById('systemStatus').textContent = 'ATTACK COMPLETE';
+                document.getElementById('systemStatus').style.color = '#00ff00';
+                document.getElementById('startBtn').disabled = false;
+                document.getElementById('startBtn').textContent = '🚀 LAUNCH VIEW BOT ATTACK';
+                document.getElementById('activeWorkers').textContent = '0';
+                
+                const elapsedTime = ((Date.now() - this.startTime) / 1000).toFixed(1);
+                
+                this.log('========================================', 'success');
+                this.log(`🎉 ATTACK COMPLETED SUCCESSFULLY!`, 'success');
+                this.log(`📊 Total views sent: ${this.totalViews.toLocaleString()}`, 'success');
+                this.log(`⏱️ Time elapsed: ${elapsedTime} seconds`, 'success');
+                this.log(`✅ Success rate: ${Math.round((this.successfulRequests / (this.successfulRequests + this.failedRequests)) * 100)}%`, 'success');
+                this.log('========================================', 'success');
+                
+                // Schedule YouTube cleanup simulation
+                setTimeout(() => {
+                    this.simulateYouTubeCleanup();
+                }, 30000); // After 30 seconds
+            }
+            
+            simulateYouTubeCleanup() {
+                this.log('🔍 YouTube analytics processing views...', 'warning');
+                
+                setTimeout(() => {
+                    const viewsToRemove = Math.floor(this.totalViews * Math.random() * 0.3);
+                    const finalViews = Math.max(0, this.totalViews - viewsToRemove);
+                    
+                    this.log(`🧹 YouTube removed ${viewsToRemove.toLocaleString()} suspicious views`, 'error');
+                    this.log(`📈 Final view count: ${finalViews.toLocaleString()}`, 'info');
+                    this.log('⚠️ YouTube may flag video for view manipulation', 'warning');
+                }, 5000);
+            }
+            
+            log(message, type = 'info') {
+                const terminal = document.getElementById('terminalContent');
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry ${type}`;
+                
+                const timestamp = new Date().toLocaleTimeString();
+                logEntry.textContent = `[${timestamp}] ${message}`;
+                
+                terminal.appendChild(logEntry);
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+            
+            stopAttack() {
+                this.isRunning = false;
+                clearInterval(this.viewInterval);
+                clearInterval(this.statsInterval);
+                
+                this.workers.forEach(worker => {
+                    clearInterval(worker.interval);
+                });
+                
+                this.log('Attack stopped by user', 'warning');
+                document.getElementById('systemStatus').textContent = 'STOPPED';
+                document.getElementById('startBtn').disabled = false;
+                document.getElementById('startBtn').textContent = '🚀 LAUNCH VIEW BOT ATTACK';
+            }
+        }
+        
+        // Initialize system
+        const viewBotSystem = new ViewBotSystem();
+        
+        // DOM Elements
+        const viewSlider = document.getElementById('viewSlider');
+        const viewCount = document.getElementById('viewCount');
+        const durationSlider = document.getElementById('durationSlider');
+        const durationCount = document.getElementById('durationCount');
+        const workerSlider = document.getElementById('workerSlider');
+        const workerCount = document.getElementById('workerCount');
+        const startBtn = document.getElementById('startBtn');
+        const proxyOptions = document.querySelectorAll('.proxy-option');
+        const presetButtons = document.querySelectorAll('.preset-btn');
+        
+        // Event Listeners
+        viewSlider.addEventListener('input', () => {
+            const value = parseInt(viewSlider.value);
+            viewCount.textContent = value.toLocaleString();
+        });
+        
+        durationSlider.addEventListener('input', () => {
+            const value = parseInt(durationSlider.value);
+            durationCount.textContent = `${value}s`;
+        });
+        
+        workerSlider.addEventListener('input', () => {
+            const value = parseInt(workerSlider.value);
+            workerCount.textContent = value;
+        });
+        
+        // Proxy selection
+        proxyOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                proxyOptions.forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+                viewBotSystem.currentProxy = option.dataset.proxy;
+                viewBotSystem.log(`Proxy network switched to: ${option.dataset.proxy}`, 'info');
+            });
+        });
+        
+        // Preset buttons
+        presetButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const views = parseInt(button.dataset.views);
+                viewSlider.value = views;
+                viewCount.textContent = views.toLocaleString();
+                viewBotSystem.log(`Target views set to: ${views.toLocaleString()}`, 'info');
+            });
+        });
+        
+        // Start button
+        startBtn.addEventListener('click', () => {
+            const videoUrl = document.getElementById('videoUrl').value;
+            const targetViews = parseInt(viewSlider.value);
+            const workerCount = parseInt(workerSlider.value);
+            
+            if (!videoUrl.includes('youtube.com')) {
+                viewBotSystem.log('Invalid YouTube URL', 'error');
+                alert('Please enter a valid YouTube URL');
+                return;
+            }
+            
+            if (targetViews < 100) {
+                alert('Minimum 100 views required');
+                return;
+            }
+            
+            // Confirm action
+            if (!confirm(`🚨 WARNING: This will simulate an attack of ${targetViews.toLocaleString()} views.\n\nThis is for EDUCATIONAL PURPOSES ONLY.\n\nContinue?`)) {
+                return;
+            }
+            
+            viewBotSystem.startAttack(videoUrl, targetViews, workerCount);
+        });
+        
+        // Emergency stop on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && viewBotSystem.isRunning) {
+                viewBotSystem.stopAttack();
+            }
+        });
+        
+        // Add some initial terminal logs
+        setTimeout(() => {
+            viewBotSystem.log('Loading proxy IP database...', 'info');
+        }, 1000);
+        
+        setTimeout(() => {
+            viewBotSystem.log('Initializing view generation algorithms...', 'info');
+        }, 2000);
+        
+        setTimeout(() => {
+            viewBotSystem.log('YouTube detection bypass systems ready', 'success');
+        }, 3000);
+    </script>
+</body>
+</html>
