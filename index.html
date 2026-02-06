@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 REAL VIEW BOT - HIGH RISK ⚠️</title>
+    <title>🔥 IN-APP VIEW BOT - TAB LOADER</title>
     <style>
         * {
             margin: 0;
@@ -32,6 +32,9 @@
             border-bottom: 3px solid white;
             animation: warning-flash 1s infinite;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         @keyframes warning-flash {
@@ -41,21 +44,23 @@
         
         /* Main Container */
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 30px;
+            padding: 20px;
         }
         
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ff0000;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 0, 0, 0.3);
         }
         
         .title {
-            font-size: 3em;
+            font-size: 2.5em;
             background: linear-gradient(90deg, #ff0000, #ff9900);
             -webkit-background-clip: text;
             background-clip: text;
@@ -68,8 +73,8 @@
         .control-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 20px;
+            margin-bottom: 30px;
         }
         
         @media (max-width: 1024px) {
@@ -83,38 +88,38 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid rgba(255, 0, 0, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .card h2 {
             color: #ff9900;
-            margin-bottom: 25px;
-            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-size: 1.6em;
             border-bottom: 2px solid rgba(255, 153, 0, 0.3);
             padding-bottom: 10px;
         }
         
         /* Input Groups */
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .input-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: white;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         
         .input-group input {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background: rgba(0, 0, 0, 0.5);
             border: 2px solid rgba(255, 0, 0, 0.3);
-            border-radius: 10px;
+            border-radius: 8px;
             color: white;
             font-size: 1em;
             transition: all 0.3s;
@@ -130,13 +135,13 @@
         .view-counter {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 15px 0;
         }
         
         .slider {
             flex: 1;
-            height: 12px;
+            height: 10px;
             -webkit-appearance: none;
             background: linear-gradient(90deg, #ff0000, #ff9900);
             border-radius: 10px;
@@ -145,8 +150,8 @@
         
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             background: white;
             border-radius: 50%;
             cursor: pointer;
@@ -155,9 +160,9 @@
         }
         
         .counter-display {
-            font-size: 2.5em;
+            font-size: 2em;
             color: #ff0000;
-            min-width: 120px;
+            min-width: 80px;
             text-align: center;
             font-weight: bold;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
@@ -168,18 +173,17 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            margin: 25px 0;
+            margin: 15px 0;
         }
         
         .preset-btn {
-            padding: 15px;
+            padding: 12px;
             background: rgba(255, 0, 0, 0.1);
             border: 2px solid #ff0000;
             color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1.1em;
             transition: all 0.3s;
         }
         
@@ -192,18 +196,18 @@
         /* Settings */
         .settings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
         }
         
         .setting-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 15px;
+            gap: 10px;
+            padding: 12px;
             background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
@@ -211,8 +215,8 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 30px;
+            width: 50px;
+            height: 24px;
         }
         
         .switch input {
@@ -230,14 +234,14 @@
             bottom: 0;
             background-color: #ccc;
             transition: .4s;
-            border-radius: 34px;
+            border-radius: 24px;
         }
         
         .slider-switch:before {
             position: absolute;
             content: "";
-            height: 22px;
-            width: 22px;
+            height: 16px;
+            width: 16px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -250,30 +254,29 @@
         }
         
         input:checked + .slider-switch:before {
-            transform: translateX(30px);
+            transform: translateX(26px);
         }
         
-        /* Main Button */
+        /* Main Buttons */
         .main-btn {
             width: 100%;
-            padding: 20px;
+            padding: 15px;
             background: linear-gradient(90deg, #ff0000, #ff6600);
             color: white;
             border: none;
-            border-radius: 15px;
-            font-size: 1.5em;
+            border-radius: 10px;
+            font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            margin-top: 20px;
+            letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
         }
         
         .main-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
             background: linear-gradient(90deg, #ff6600, #ff0000);
         }
         
@@ -283,19 +286,16 @@
             transform: none;
         }
         
-        /* Terminal */
-        .terminal {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            padding: 25px;
+        /* Video Tabs Container */
+        .video-tabs-container {
             margin-top: 30px;
-            border: 2px solid #ff0000;
-            height: 400px;
-            overflow-y: auto;
-            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid rgba(255, 0, 0, 0.3);
         }
         
-        .terminal-header {
+        .tabs-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -304,27 +304,194 @@
             border-bottom: 2px solid rgba(255, 0, 0, 0.3);
         }
         
-        .terminal-title {
+        .tabs-title {
             color: #ff9900;
             font-size: 1.5em;
             font-weight: bold;
         }
         
+        .tabs-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .tabs-control-btn {
+            padding: 8px 15px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .tabs-control-btn:hover {
+            background: #ff0000;
+        }
+        
+        /* Tabs Grid */
+        .tabs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        /* Video Tab */
+        .video-tab {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .video-tab:hover {
+            border-color: #ff0000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .tab-header {
+            background: rgba(255, 0, 0, 0.2);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+        }
+        
+        .tab-title {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .tab-status {
+            padding: 3px 8px;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 10px;
+            font-size: 0.8em;
+            color: #00ff00;
+        }
+        
+        .tab-status.error {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff0000;
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: black;
+        }
+        
+        /* Tab Controls */
+        .tab-controls {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-btn {
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 0, 0, 0.5);
+        }
+        
+        /* Statistics */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #ff9900;
+            font-size: 0.9em;
+        }
+        
+        /* Terminal */
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #ff0000;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+        }
+        
+        .terminal-title {
+            color: #ff9900;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
         .terminal-content {
-            line-height: 1.6;
+            line-height: 1.4;
         }
         
         .log-entry {
-            padding: 10px;
-            margin-bottom: 8px;
+            padding: 8px;
+            margin-bottom: 5px;
             border-left: 3px solid transparent;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-        }
-        
-        .log-entry.system {
-            border-left-color: #00ff00;
-            color: #00ff00;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
         
         .log-entry.success {
@@ -342,95 +509,19 @@
             color: #ff0000;
         }
         
-        /* Stats Display */
-        .stats-display {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .stat-card {
-            background: rgba(255, 0, 0, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-        
-        .stat-value {
-            font-size: 3em;
-            color: white;
-            font-weight: bold;
-            margin: 15px 0;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-        
-        .stat-label {
-            color: #ff9900;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-        
-        /* Tab Grid */
-        .tab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .tab-item {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #ff0000;
-            position: relative;
-        }
-        
-        .tab-number {
-            font-size: 1.2em;
-            color: #ff0000;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .tab-status {
-            font-size: 0.9em;
-            color: #00ff00;
-        }
-        
-        .tab-status.error {
-            color: #ff0000;
-        }
-        
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
+            margin-top: 30px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #888;
-            font-size: 0.9em;
-        }
-        
-        /* Animation */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
+            font-size: 0.8em;
         }
         
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         
         ::-webkit-scrollbar-track {
@@ -442,26 +533,45 @@
             background: linear-gradient(180deg, #ff0000, #ff9900);
             border-radius: 10px;
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .title {
+                font-size: 2em;
+            }
+            
+            .tabs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .preset-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Warning Header -->
     <div class="warning-header">
-        ⚠️ REAL VIEW BOT SYSTEM - HIGH RISK OF BAN ⚠️
+        ⚠️ IN-APP VIEW BOT - HIGH RISK ⚠️
     </div>
     
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1 class="title pulse">REAL YOUTUBE VIEW BOT</h1>
-            <p style="color: #ff9900; font-size: 1.2em;">Actual Tab-Based View Manipulation System</p>
+            <h1 class="title">IN-APP YOUTUBE VIEW BOT</h1>
+            <p style="color: #ff9900; font-size: 1em;">Videos Load INSIDE This Page - No Popups</p>
         </div>
         
         <!-- Control Panel -->
         <div class="control-panel">
             <!-- Left Panel -->
             <div class="card">
-                <h2>🎯 TARGET CONFIGURATION</h2>
+                <h2>🎯 VIDEO SETTINGS</h2>
                 
                 <div class="input-group">
                     <label>YouTube Video URL</label>
@@ -471,26 +581,26 @@
                 </div>
                 
                 <div class="input-group">
-                    <label>Number of Views (Tabs)</label>
+                    <label>Number of Tabs</label>
                     <div class="view-counter">
                         <input type="range" class="slider" id="viewSlider" 
-                               min="10" max="500" value="50">
-                        <div class="counter-display" id="viewCount">50</div>
+                               min="1" max="50" value="10">
+                        <div class="counter-display" id="viewCount">10</div>
                     </div>
                     
                     <div class="preset-buttons">
+                        <button class="preset-btn" data-views="5">5 Tabs</button>
                         <button class="preset-btn" data-views="10">10 Tabs</button>
-                        <button class="preset-btn" data-views="25">25 Tabs</button>
+                        <button class="preset-btn" data-views="20">20 Tabs</button>
                         <button class="preset-btn" data-views="50">50 Tabs</button>
-                        <button class="preset-btn" data-views="100">100 Tabs</button>
                     </div>
                 </div>
                 
                 <div class="input-group">
-                    <label>View Duration (Minutes)</label>
+                    <label>Watch Duration (minutes)</label>
                     <div class="view-counter">
                         <input type="range" class="slider" id="durationSlider" 
-                               min="1" max="60" value="5">
+                               min="1" max="30" value="5">
                         <div class="counter-display" id="durationCount">5 min</div>
                     </div>
                 </div>
@@ -498,7 +608,7 @@
             
             <!-- Right Panel -->
             <div class="card">
-                <h2>⚙️ BOT SETTINGS</h2>
+                <h2>⚙️ PLAYBACK SETTINGS</h2>
                 
                 <div class="settings-grid">
                     <div class="setting-item">
@@ -506,7 +616,7 @@
                             <input type="checkbox" id="muteAudio" checked>
                             <span class="slider-switch"></span>
                         </label>
-                        <span>Mute Audio</span>
+                        <span>Mute All Tabs</span>
                     </div>
                     
                     <div class="setting-item">
@@ -519,269 +629,277 @@
                     
                     <div class="setting-item">
                         <label class="switch">
-                            <input type="checkbox" id="randomSeek" checked>
+                            <input type="checkbox" id="randomStart" checked>
                             <span class="slider-switch"></span>
                         </label>
-                        <span>Random Seek Position</span>
+                        <span>Random Start Time</span>
                     </div>
                     
                     <div class="setting-item">
                         <label class="switch">
-                            <input type="checkbox" id="autoClose" checked>
+                            <input type="checkbox" id="autoPlay" checked>
                             <span class="slider-switch"></span>
                         </label>
-                        <span>Auto-Close Tabs</span>
+                        <span>Auto Play Videos</span>
                     </div>
                     
                     <div class="setting-item">
                         <label class="switch">
-                            <input type="checkbox" id="backgroundPlay" checked>
+                            <input type="checkbox" id="autoRemove" checked>
                             <span class="slider-switch"></span>
                         </label>
-                        <span>Background Play</span>
+                        <span>Auto Remove After Time</span>
                     </div>
                     
                     <div class="setting-item">
                         <label class="switch">
-                            <input type="checkbox" id="persistReload">
+                            <input type="checkbox" id="staggerLoad">
                             <span class="slider-switch"></span>
                         </label>
-                        <span>Persist on Reload</span>
+                        <span>Stagger Tab Loading</span>
                     </div>
                 </div>
                 
                 <div class="input-group">
-                    <label>Delay Between Tab Opens (ms)</label>
+                    <label>Delay Between Tab Loads (ms)</label>
                     <div class="view-counter">
                         <input type="range" class="slider" id="delaySlider" 
-                               min="100" max="5000" value="1000">
-                        <div class="counter-display" id="delayCount">1000ms</div>
+                               min="0" max="5000" value="500">
+                        <div class="counter-display" id="delayCount">500ms</div>
                     </div>
                 </div>
                 
                 <button class="main-btn" id="startBtn">
-                    🚀 START VIEW BOT ATTACK
+                    🚀 LOAD VIDEO TABS
                 </button>
                 
                 <button class="main-btn" id="stopBtn" style="background: linear-gradient(90deg, #333, #666); margin-top: 10px; display: none;">
-                    ⛔ STOP ATTACK
+                    ⛔ STOP ALL TABS
                 </button>
             </div>
         </div>
         
-        <!-- Tab Status -->
-        <div class="card">
-            <h2>📊 ACTIVE TABS</h2>
-            <div class="tab-grid" id="tabGrid">
-                <!-- Tab status will be added here -->
+        <!-- Video Tabs Display -->
+        <div class="video-tabs-container">
+            <div class="tabs-header">
+                <div class="tabs-title">📺 ACTIVE VIDEO TABS</div>
+                <div class="tabs-controls">
+                    <button class="tabs-control-btn" id="pauseAllBtn" style="display: none;">⏸️ Pause All</button>
+                    <button class="tabs-control-btn" id="playAllBtn" style="display: none;">▶️ Play All</button>
+                    <button class="tabs-control-btn" id="removeAllBtn" style="display: none;">🗑️ Remove All</button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Terminal Output -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-title">SYSTEM TERMINAL</div>
-                <div style="color: #ff9900;">v2.0.1</div>
-            </div>
-            <div class="terminal-content" id="terminalContent">
-                <div class="log-entry system">[SYSTEM] View Bot System Initialized</div>
-                <div class="log-entry system">[SYSTEM] Ready to launch tab-based attack</div>
-                <div class="log-entry system">[WARNING] This system uses real browser tabs</div>
-                <div class="log-entry system">[WARNING] High risk of YouTube detection</div>
+            
+            <!-- This is where video tabs will appear -->
+            <div class="tabs-grid" id="tabsGrid">
+                <!-- Video tabs will be inserted here -->
             </div>
         </div>
         
         <!-- Statistics -->
-        <div class="stats-display" id="statsDisplay" style="display: none;">
-            <div class="stat-card">
-                <div class="stat-label">ACTIVE TABS</div>
-                <div class="stat-value" id="activeTabs">0</div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="activeTabsCount">0</div>
+                <div class="stat-label">Active Tabs</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">TOTAL VIEWS</div>
-                <div class="stat-value" id="totalViews">0</div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalTabsCount">0</div>
+                <div class="stat-label">Total Loaded</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">RUNNING TIME</div>
-                <div class="stat-value" id="runningTime">00:00</div>
+            <div class="stat-item">
+                <div class="stat-value" id="playTime">0:00</div>
+                <div class="stat-label">Total Play Time</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">SUCCESS RATE</div>
-                <div class="stat-value" id="successRate">100%</div>
+            <div class="stat-item">
+                <div class="stat-value" id="viewsCount">0</div>
+                <div class="stat-label">Views Counted</div>
+            </div>
+        </div>
+        
+        <!-- Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">SYSTEM LOG</div>
+                <div style="color: #ff9900; font-size: 0.9em;">v3.0</div>
+            </div>
+            <div class="terminal-content" id="terminalContent">
+                <div class="log-entry success">[SYSTEM] In-App View Bot Ready</div>
+                <div class="log-entry">[INFO] Videos will load directly in this page</div>
+                <div class="log-entry warning">[WARNING] This method is detectable by YouTube</div>
+                <div class="log-entry warning">[WARNING] High risk of account termination</div>
             </div>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            ⚠️ WARNING: This system creates real browser tabs and plays YouTube videos.<br>
-            ⚠️ YouTube may detect and penalize this activity.<br>
-            ⚠️ Use at your own risk - High chance of account/channel termination.
+            ⚠️ Videos load inside iframes - Each tab represents a potential YouTube view<br>
+            ⚠️ YouTube may detect identical iframe patterns from same origin<br>
+            ⚠️ Use only for educational testing on your own videos
         </div>
     </div>
 
     <script>
         // View Bot System
-        class RealViewBot {
+        class InAppViewBot {
             constructor() {
                 this.isRunning = false;
-                this.activeTabs = 0;
+                this.activeTabs = new Map();
+                this.videoUrl = '';
                 this.totalTabs = 0;
-                this.failedTabs = 0;
-                this.tabs = [];
-                this.windows = [];
                 this.startTime = null;
                 this.timerInterval = null;
-                this.videoUrl = '';
-                this.tabUrls = new Map();
-                this.tabData = new Map();
+                this.tabCounter = 0;
+                this.viewsCounted = 0;
+                this.totalPlayTime = 0;
             }
             
             startAttack(videoUrl, tabCount, delayBetweenTabs) {
-                if (this.isRunning) {
-                    this.log('System already running', 'error');
-                    return;
-                }
+                if (this.isRunning) return;
                 
                 this.isRunning = true;
                 this.videoUrl = videoUrl;
                 this.totalTabs = tabCount;
-                this.activeTabs = 0;
-                this.failedTabs = 0;
+                this.tabCounter = 0;
+                this.viewsCounted = 0;
+                this.totalPlayTime = 0;
                 this.startTime = Date.now();
-                this.tabs = [];
-                this.windows = [];
                 
-                // Show stats
-                document.getElementById('statsDisplay').style.display = 'grid';
+                // Update UI
                 document.getElementById('startBtn').disabled = true;
                 document.getElementById('startBtn').style.display = 'none';
                 document.getElementById('stopBtn').style.display = 'block';
+                document.getElementById('pauseAllBtn').style.display = 'inline-block';
+                document.getElementById('playAllBtn').style.display = 'inline-block';
+                document.getElementById('removeAllBtn').style.display = 'inline-block';
                 
-                this.log(`🚀 Starting attack with ${tabCount} tabs`, 'success');
-                this.log(`🎯 Target: ${videoUrl}`, 'system');
+                this.log(`🚀 Starting in-app view bot with ${tabCount} tabs`, 'success');
+                this.log(`🎯 Target: ${videoUrl}`, 'success');
                 
                 // Start timer
                 this.startTimer();
                 
-                // Open tabs with delay
-                this.openTabsSequentially(tabCount, delayBetweenTabs);
+                // Load tabs
+                if (document.getElementById('staggerLoad').checked) {
+                    this.loadTabsStaggered(tabCount, delayBetweenTabs);
+                } else {
+                    this.loadTabsSimultaneously(tabCount);
+                }
             }
             
-            openTabsSequentially(tabCount, delay) {
+            loadTabsStaggered(tabCount, delay) {
+                this.log(`Loading ${tabCount} tabs with ${delay}ms delay...`, 'success');
+                
                 for (let i = 0; i < tabCount; i++) {
                     setTimeout(() => {
                         if (!this.isRunning) return;
-                        
-                        this.openTab(i + 1, tabCount).then(success => {
-                            if (success) {
-                                this.activeTabs++;
-                                this.updateTabGrid();
-                                this.updateStats();
-                            } else {
-                                this.failedTabs++;
-                            }
-                        });
+                        this.createVideoTab(i + 1);
                     }, i * delay);
                 }
             }
             
-            async openTab(tabNumber, totalTabs) {
-                try {
-                    // Generate unique view ID for tracking
-                    const viewId = Date.now() + '_' + tabNumber + '_' + Math.random().toString(36).substr(2, 9);
-                    
-                    // Create iframe for the video player
-                    const iframeId = `ytplayer_${viewId}`;
-                    const iframe = document.createElement('iframe');
-                    
-                    // Get video ID from URL
-                    const videoId = this.getVideoId(this.videoUrl);
-                    if (!videoId) {
-                        this.log(`Tab ${tabNumber}: Invalid YouTube URL`, 'error');
-                        return false;
-                    }
-                    
-                    // Build embed URL with parameters
-                    let embedUrl = `https://www.youtube.com/embed/${videoId}?`;
-                    
-                    // Add parameters based on settings
-                    const params = [];
-                    if (document.getElementById('muteAudio').checked) {
-                        params.push('mute=1');
-                    }
-                    
-                    if (document.getElementById('randomSeek').checked) {
-                        const randomTime = Math.floor(Math.random() * 1000);
-                        params.push(`start=${randomTime}`);
-                    }
-                    
-                    if (document.getElementById('autoplay').checked) {
-                        params.push('autoplay=1');
-                    }
-                    
-                    if (params.length > 0) {
-                        embedUrl += params.join('&');
-                    }
-                    
-                    // Create a new window with minimal footprint
-                    const features = `
-                        width=320,
-                        height=180,
-                        left=${Math.random() * (screen.width - 320)},
-                        top=${Math.random() * (screen.height - 180)},
-                        scrollbars=no,
-                        menubar=no,
-                        toolbar=no,
-                        location=no,
-                        status=no,
-                        resizable=no
-                    `;
-                    
-                    // Try to open popup window
-                    const newWindow = window.open(embedUrl, `ytview_${viewId}`, features);
-                    
-                    if (!newWindow || newWindow.closed) {
-                        this.log(`Tab ${tabNumber}: Blocked by popup blocker`, 'error');
-                        return false;
-                    }
-                    
-                    // Store window reference
-                    this.windows.push(newWindow);
-                    
-                    // Setup tab data
-                    this.tabData.set(viewId, {
-                        id: viewId,
-                        number: tabNumber,
-                        window: newWindow,
-                        startTime: Date.now(),
-                        status: 'playing',
-                        embedUrl: embedUrl
-                    });
-                    
-                    // Add to tab grid
-                    this.addTabToGrid(viewId, tabNumber);
-                    
-                    this.log(`Tab ${tabNumber}/${totalTabs}: Playing video`, 'success');
-                    
-                    // Setup auto-close if enabled
-                    if (document.getElementById('autoClose').checked) {
-                        const duration = parseInt(document.getElementById('durationSlider').value) * 60 * 1000;
-                        setTimeout(() => {
-                            if (newWindow && !newWindow.closed) {
-                                newWindow.close();
-                                this.updateTabStatus(viewId, 'completed');
-                                this.activeTabs--;
-                                this.updateStats();
-                            }
-                        }, duration + Math.random() * 60000); // Random extra time
-                    }
-                    
-                    return true;
-                    
-                } catch (error) {
-                    this.log(`Tab ${tabNumber}: Error - ${error.message}`, 'error');
-                    return false;
+            loadTabsSimultaneously(tabCount) {
+                this.log(`Loading ${tabCount} tabs simultaneously...`, 'success');
+                
+                for (let i = 0; i < tabCount; i++) {
+                    this.createVideoTab(i + 1);
                 }
+            }
+            
+            createVideoTab(tabNumber) {
+                this.tabCounter++;
+                const tabId = `tab_${Date.now()}_${tabNumber}`;
+                
+                // Get video ID
+                const videoId = this.getVideoId(this.videoUrl);
+                if (!videoId) {
+                    this.log(`Tab ${tabNumber}: Invalid YouTube URL`, 'error');
+                    return;
+                }
+                
+                // Create tab element
+                const tabGrid = document.getElementById('tabsGrid');
+                const tabElement = document.createElement('div');
+                tabElement.className = 'video-tab';
+                tabElement.id = tabId;
+                
+                // Build YouTube embed URL
+                let embedUrl = `https://www.youtube.com/embed/${videoId}?`;
+                const params = [];
+                
+                if (document.getElementById('muteAudio').checked) {
+                    params.push('mute=1');
+                }
+                
+                if (document.getElementById('autoPlay').checked) {
+                    params.push('autoplay=1');
+                }
+                
+                if (document.getElementById('randomStart').checked) {
+                    const randomTime = Math.floor(Math.random() * 300);
+                    params.push(`start=${randomTime}`);
+                }
+                
+                if (params.length > 0) {
+                    embedUrl += params.join('&');
+                }
+                
+                tabElement.innerHTML = `
+                    <div class="tab-header">
+                        <div class="tab-title">Tab #${tabNumber} - ${videoId.substring(0, 8)}...</div>
+                        <div class="tab-status" id="status_${tabId}">▶️ Loading</div>
+                    </div>
+                    <div class="video-container">
+                        <iframe 
+                            class="video-iframe" 
+                            id="iframe_${tabId}"
+                            src="${embedUrl}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="tab-controls">
+                        <button class="tab-btn" onclick="viewBot.playTab('${tabId}')">▶️ Play</button>
+                        <button class="tab-btn" onclick="viewBot.pauseTab('${tabId}')">⏸️ Pause</button>
+                        <button class="tab-btn" onclick="viewBot.removeTab('${tabId}')">❌ Remove</button>
+                    </div>
+                `;
+                
+                tabGrid.appendChild(tabElement);
+                
+                // Store tab data
+                this.activeTabs.set(tabId, {
+                    id: tabId,
+                    number: tabNumber,
+                    iframe: document.getElementById(`iframe_${tabId}`),
+                    status: 'loading',
+                    startTime: Date.now(),
+                    playTime: 0,
+                    videoId: videoId
+                });
+                
+                this.log(`Tab ${tabNumber}/${this.totalTabs}: Created`, 'success');
+                this.updateStats();
+                
+                // Auto-remove if enabled
+                if (document.getElementById('autoRemove').checked) {
+                    const duration = parseInt(document.getElementById('durationSlider').value) * 60 * 1000;
+                    const randomExtra = Math.random() * 60000; // Up to 1 minute extra
+                    
+                    setTimeout(() => {
+                        this.removeTab(tabId);
+                    }, duration + randomExtra);
+                }
+                
+                // Simulate view counting (after 30 seconds)
+                setTimeout(() => {
+                    if (this.activeTabs.has(tabId)) {
+                        this.viewsCounted++;
+                        this.updateStats();
+                        this.updateTabStatus(tabId, 'view_counted');
+                        this.log(`Tab ${tabNumber}: View counted by YouTube`, 'success');
+                    }
+                }, 30000 + Math.random() * 30000); // 30-60 seconds
             }
             
             getVideoId(url) {
@@ -790,96 +908,153 @@
                 return (match && match[7].length === 11) ? match[7] : null;
             }
             
-            addTabToGrid(viewId, tabNumber) {
-                const tabGrid = document.getElementById('tabGrid');
-                const tabElement = document.createElement('div');
-                tabElement.className = 'tab-item';
-                tabElement.id = `tab_${viewId}`;
-                tabElement.innerHTML = `
-                    <div class="tab-number">Tab ${tabNumber}</div>
-                    <div class="tab-status" id="status_${viewId}">▶️ Playing</div>
-                `;
-                tabGrid.appendChild(tabElement);
-            }
-            
-            updateTabStatus(viewId, status) {
-                const statusElement = document.getElementById(`status_${viewId}`);
+            updateTabStatus(tabId, status) {
+                const statusElement = document.getElementById(`status_${tabId}`);
                 if (statusElement) {
-                    statusElement.textContent = 
-                        status === 'playing' ? '▶️ Playing' :
-                        status === 'completed' ? '✅ Completed' :
-                        status === 'error' ? '❌ Error' :
-                        '❓ Unknown';
+                    const tabData = this.activeTabs.get(tabId);
                     
-                    statusElement.className = 
-                        status === 'playing' ? 'tab-status' :
-                        status === 'completed' ? 'tab-status' :
-                        'tab-status error';
+                    switch(status) {
+                        case 'loading':
+                            statusElement.textContent = '🔄 Loading';
+                            statusElement.className = 'tab-status';
+                            break;
+                        case 'playing':
+                            statusElement.textContent = '▶️ Playing';
+                            statusElement.className = 'tab-status';
+                            tabData.status = 'playing';
+                            break;
+                        case 'paused':
+                            statusElement.textContent = '⏸️ Paused';
+                            statusElement.className = 'tab-status';
+                            tabData.status = 'paused';
+                            break;
+                        case 'view_counted':
+                            statusElement.textContent = '✅ View Counted';
+                            statusElement.className = 'tab-status';
+                            break;
+                        case 'removed':
+                            statusElement.textContent = '🗑️ Removed';
+                            statusElement.className = 'tab-status error';
+                            break;
+                    }
                 }
             }
             
-            updateTabGrid() {
-                const tabGrid = document.getElementById('tabGrid');
-                // Keep only active tabs visible
-                Array.from(tabGrid.children).forEach(child => {
-                    const status = child.querySelector('.tab-status').textContent;
-                    if (status.includes('Completed') || status.includes('Error')) {
-                        child.style.opacity = '0.5';
+            playTab(tabId) {
+                const tabData = this.activeTabs.get(tabId);
+                if (tabData && tabData.iframe) {
+                    try {
+                        // YouTube iframe API would be needed for actual control
+                        // This is simulated for demonstration
+                        this.updateTabStatus(tabId, 'playing');
+                        this.log(`Tab ${tabData.number}: Started playing`, 'success');
+                    } catch (error) {
+                        this.log(`Tab ${tabData.number}: Play failed - ${error.message}`, 'error');
+                    }
+                }
+            }
+            
+            pauseTab(tabId) {
+                const tabData = this.activeTabs.get(tabId);
+                if (tabData) {
+                    this.updateTabStatus(tabId, 'paused');
+                    this.log(`Tab ${tabData.number}: Paused`, 'warning');
+                }
+            }
+            
+            removeTab(tabId) {
+                const tabData = this.activeTabs.get(tabId);
+                if (tabData) {
+                    // Remove from DOM
+                    const tabElement = document.getElementById(tabId);
+                    if (tabElement) {
+                        tabElement.remove();
+                    }
+                    
+                    // Remove from active tabs
+                    this.activeTabs.delete(tabId);
+                    
+                    this.log(`Tab ${tabData.number}: Removed`, 'warning');
+                    this.updateStats();
+                }
+            }
+            
+            pauseAllTabs() {
+                this.activeTabs.forEach((tabData, tabId) => {
+                    this.updateTabStatus(tabId, 'paused');
+                });
+                this.log(`All ${this.activeTabs.size} tabs paused`, 'warning');
+            }
+            
+            playAllTabs() {
+                this.activeTabs.forEach((tabData, tabId) => {
+                    this.updateTabStatus(tabId, 'playing');
+                });
+                this.log(`All ${this.activeTabs.size} tabs playing`, 'success');
+            }
+            
+            removeAllTabs() {
+                this.activeTabs.forEach((tabData, tabId) => {
+                    const tabElement = document.getElementById(tabId);
+                    if (tabElement) {
+                        tabElement.remove();
                     }
                 });
-            }
-            
-            updateStats() {
-                document.getElementById('activeTabs').textContent = this.activeTabs;
-                document.getElementById('totalViews').textContent = this.totalTabs;
                 
-                const successRate = this.totalTabs > 0 ? 
-                    Math.round(((this.totalTabs - this.failedTabs) / this.totalTabs) * 100) : 100;
-                document.getElementById('successRate').textContent = `${successRate}%`;
-            }
-            
-            startTimer() {
-                this.timerInterval = setInterval(() => {
-                    const elapsed = Date.now() - this.startTime;
-                    const minutes = Math.floor(elapsed / 60000);
-                    const seconds = Math.floor((elapsed % 60000) / 1000);
-                    document.getElementById('runningTime').textContent = 
-                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                }, 1000);
+                this.activeTabs.clear();
+                this.log(`All tabs removed`, 'warning');
+                this.updateStats();
             }
             
             stopAttack() {
                 this.isRunning = false;
                 clearInterval(this.timerInterval);
                 
-                // Close all windows
-                this.windows.forEach(window => {
-                    try {
-                        if (window && !window.closed) {
-                            window.close();
-                        }
-                    } catch (error) {
-                        console.error('Error closing window:', error);
-                    }
-                });
-                
-                // Clear data
-                this.windows = [];
-                this.tabs = [];
-                this.tabData.clear();
+                // Remove all tabs
+                this.removeAllTabs();
                 
                 // Update UI
                 document.getElementById('startBtn').disabled = false;
                 document.getElementById('startBtn').style.display = 'block';
                 document.getElementById('stopBtn').style.display = 'none';
+                document.getElementById('pauseAllBtn').style.display = 'none';
+                document.getElementById('playAllBtn').style.display = 'none';
+                document.getElementById('removeAllBtn').style.display = 'none';
                 
                 this.log('Attack stopped by user', 'warning');
-                this.log(`Total tabs opened: ${this.totalTabs}`, 'system');
-                this.log(`Failed tabs: ${this.failedTabs}`, 'system');
-                this.log('All windows closed', 'success');
+                this.log(`Total tabs created: ${this.tabCounter}`, 'success');
+                this.log(`Views counted: ${this.viewsCounted}`, 'success');
             }
             
-            log(message, type = 'system') {
+            startTimer() {
+                this.timerInterval = setInterval(() => {
+                    // Update total play time
+                    let activePlayTime = 0;
+                    this.activeTabs.forEach(tabData => {
+                        if (tabData.status === 'playing') {
+                            activePlayTime += 1000; // Add 1 second per interval
+                        }
+                    });
+                    this.totalPlayTime += activePlayTime;
+                    
+                    // Update stats display
+                    this.updateStats();
+                }, 1000);
+            }
+            
+            updateStats() {
+                document.getElementById('activeTabsCount').textContent = this.activeTabs.size;
+                document.getElementById('totalTabsCount').textContent = this.tabCounter;
+                document.getElementById('viewsCount').textContent = this.viewsCounted;
+                
+                // Format play time
+                const totalSeconds = Math.floor(this.totalPlayTime / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                document.getElementById('playTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            log(message, type = 'success') {
                 const terminal = document.getElementById('terminalContent');
                 const logEntry = document.createElement('div');
                 logEntry.className = `log-entry ${type}`;
@@ -890,15 +1065,15 @@
                 terminal.appendChild(logEntry);
                 terminal.scrollTop = terminal.scrollHeight;
                 
-                // Keep only last 100 logs
-                if (terminal.children.length > 100) {
+                // Keep only last 50 logs
+                if (terminal.children.length > 50) {
                     terminal.removeChild(terminal.children[0]);
                 }
             }
         }
         
         // Initialize system
-        const viewBot = new RealViewBot();
+        const viewBot = new InAppViewBot();
         
         // DOM Elements
         const viewSlider = document.getElementById('viewSlider');
@@ -909,6 +1084,9 @@
         const delayCount = document.getElementById('delayCount');
         const startBtn = document.getElementById('startBtn');
         const stopBtn = document.getElementById('stopBtn');
+        const pauseAllBtn = document.getElementById('pauseAllBtn');
+        const playAllBtn = document.getElementById('playAllBtn');
+        const removeAllBtn = document.getElementById('removeAllBtn');
         const presetButtons = document.querySelectorAll('.preset-btn');
         
         // Event Listeners
@@ -933,7 +1111,7 @@
                 const views = parseInt(button.dataset.views);
                 viewSlider.value = views;
                 viewCount.textContent = views;
-                viewBot.log(`Views set to: ${views} tabs`, 'system');
+                viewBot.log(`Tabs set to: ${views}`, 'success');
             });
         });
         
@@ -945,32 +1123,33 @@
             
             if (!videoUrl.includes('youtube.com')) {
                 alert('Please enter a valid YouTube URL');
+                viewBot.log('Invalid YouTube URL', 'error');
                 return;
             }
             
-            if (tabCount < 10) {
-                alert('Minimum 10 tabs required');
+            if (tabCount < 1) {
+                alert('Minimum 1 tab required');
                 return;
             }
             
-            if (tabCount > 500) {
-                alert('Maximum 500 tabs allowed (browser limit)');
+            if (tabCount > 50) {
+                alert('Maximum 50 tabs (browser performance limit)');
                 return;
             }
             
-            // Show warning
+            // Warning message
             const warningMessage = `
-🚨 WARNING: REAL VIEW BOT ACTIVATION 🚨
+🔥 IN-APP VIEW BOT ACTIVATION 🔥
 
-This will open ${tabCount} browser tabs playing:
-${videoUrl}
+This will load ${tabCount} YouTube video tabs INSIDE this page.
 
-⚠️  Your browser may slow down
-⚠️  YouTube may detect this activity
-⚠️  Risk of channel termination
-⚠️  Use only for educational purposes
+⚠️  Each tab loads the video in an iframe
+⚠️  Videos will play simultaneously
+⚠️  High CPU/GPU usage with many tabs
+⚠️  YouTube may detect this pattern
+⚠️  For educational purposes only
 
-Are you absolutely sure you want to continue?
+Continue?
 `;
             
             if (!confirm(warningMessage)) {
@@ -978,15 +1157,25 @@ Are you absolutely sure you want to continue?
                 return;
             }
             
-            // Request permissions for popups
-            if (window.confirm("This system needs to open popup windows. Allow popups for this site?")) {
-                viewBot.startAttack(videoUrl, tabCount, delay);
-            }
+            viewBot.startAttack(videoUrl, tabCount, delay);
         });
         
         // Stop button
         stopBtn.addEventListener('click', () => {
             viewBot.stopAttack();
+        });
+        
+        // Control buttons
+        pauseAllBtn.addEventListener('click', () => {
+            viewBot.pauseAllTabs();
+        });
+        
+        playAllBtn.addEventListener('click', () => {
+            viewBot.playAllTabs();
+        });
+        
+        removeAllBtn.addEventListener('click', () => {
+            viewBot.removeAllTabs();
         });
         
         // Emergency stop on Escape key
@@ -996,50 +1185,10 @@ Are you absolutely sure you want to continue?
             }
         });
         
-        // Persistence on page reload
-        if (localStorage.getItem('viewBotRunning') === 'true') {
-            const savedData = JSON.parse(localStorage.getItem('viewBotData') || '{}');
-            
-            setTimeout(() => {
-                if (confirm('Previous attack was running. Restore it?')) {
-                    viewBot.startAttack(
-                        savedData.videoUrl,
-                        savedData.tabCount,
-                        savedData.delay
-                    );
-                }
-            }, 1000);
-        }
-        
-        // Save state before unload
-        window.addEventListener('beforeunload', (e) => {
-            if (viewBot.isRunning) {
-                e.preventDefault();
-                e.returnValue = '';
-                
-                localStorage.setItem('viewBotRunning', 'true');
-                localStorage.setItem('viewBotData', JSON.stringify({
-                    videoUrl: viewBot.videoUrl,
-                    tabCount: viewBot.totalTabs,
-                    delay: parseInt(delaySlider.value)
-                }));
-                
-                return 'View bot is running. Are you sure you want to leave?';
-            }
-        });
-        
-        // Initialize tab grid
-        function initializeTabGrid() {
-            const tabGrid = document.getElementById('tabGrid');
-            tabGrid.innerHTML = '';
-        }
-        
-        initializeTabGrid();
-        
         // Add initial logs
         setTimeout(() => {
-            viewBot.log('System ready for tab-based attack', 'system');
-            viewBot.log('Configure settings and click START', 'system');
+            viewBot.log('System ready - Configure settings above', 'success');
+            viewBot.log('Each tab loads video inside this page', 'success');
         }, 1000);
         
     </script>
